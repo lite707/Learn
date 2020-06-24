@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+</body>
+<script>
+    // function createElement(options={}){
+    //     const div = document.createElement('div')
+    //     let {width='600',height='300',backgroundColor='red'} = options;
+    //     div.style.width = width + 'px'
+    //     div.style.height = height + 'px'
+    //     div.style.backgroundColor = backgroundColor
+    //     document.body.appendChild(div)
+    // }
+    // createElement({width:600})
+
+    // const obj = {
+    //     name:'zhangsan',
+    //     age:18
+    // }
+    // const {name='lisi',age=19} = obj
+    // console.log(name,age);
+    // obj.sex= 'nan'
+    // Object.prototype.in = 20
+    // console.log(obj);
+    // console.log(Object.keys(obj));
+    // for(let i  in  obj){
+    //     console.log(i);
+    // }
+    // console.log(obj.hasOwnProperty('in'));
+
+    // console.log(o);
+
+
+    // hasOwnProperty，Object.keys查找属性，不包括原型链上
+    // ....in...   查找属性，包括原型链上属性
+
+
+    // let arr =[1,22,3]
+    // console.log(arr);
+    // console.log(arr.hasOwnProperty('length'));
+    // console.log(obj);
+    // Object.setPropertyOf()
+    // for (let key in arr) {
+    //     console.log(key);
+    // }
+    // const obj = {
+    //     name: 'zhansan',
+    //     foo:{
+    //         age:18
+    //     }
+    // }
+    // console.log(obj);
+    // const obj1 = Object.assign({}, obj)
+    // obj1.name='lisi'
+    // obj1.foo.age = 20
+    // console.log(obj1);
+
+    //     obj1.sec= '1233'
+    //     const obj2= Object.assign(obj1,obj)
+    //     console.log(obj2);
+
+
+    // const par = {
+    //     name: 'zhnsg',
+    //     age: 18,
+    //     data: {
+    //         sex: 'nan',
+    //         good: 'duixgn'
+    //     },
+    //     arr: [1, 231, 3]
+    // }
+
+
+
+    // function copy(obj) {
+    //     const fn = obj instanceof Array ? [] : {}
+    //     for (const [k, v] of Object.entries(obj)) {
+    //         fn[k] = typeof v === 'object' ? copy(v) : v
+    //     }
+    //     return fn
+    // }
+    // const fn = copy(par)
+
+    // fn.name = '132131'
+    // fn.data.sex = 'nv'
+    // fn.data.good = 'functiong'
+    // fn.arr.push('qqqqq')
+    // console.log(JSON.stringify(par));
+    // console.log(JSON.stringify(fn));
+
+
+
+    // function fn(){
+    //     let a=1;
+    //     function foo(){
+    //         let b= 2
+    //         console.log(a);
+
+    //     }
+    //     return foo
+    // }
+    // console.log(fn);
+
+    // const op = fn()
+    // op()
+    // const obj = {
+    //     name :'132',
+    //     sayname(){
+    //         let b= 2
+    //         console.log(this.name);
+    //     }
+    // }
+    // console.log(obj)
+    /**
+* Question 1
+*/
+
+    var name = 'window'
+
+    var person1 = {
+        name: 'person1',
+        show1: function () {
+            console.log(this.name)
+        },
+        show2: () => console.log(this.name),
+        show3: function () {
+            return function () {
+                console.log(this.name)
+            }
+        },
+        show4: function () {
+            return () => console.log(this.name)
+        }
+    }
+    var person2 = { name: 'person2' }
+
+    person1.show1()         //person1
+    person1.show1.call(person2)  //person2
+
+    person1.show2()             //window
+    person1.show2.call(person2) //window
+
+    person1.show3()()    //window
+    person1.show3().call(person2) //person2
+    person1.show3.call(person2)()  //window
+
+    person1.show4()()   //person1
+    person1.show4().call(person2)  //person1
+    person1.show4.call(person2)()  //person2
+
+
+</script>
+
+</html>

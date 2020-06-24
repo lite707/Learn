@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .bad {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <button>点击执行</button> -->
+    <!-- <a href="http://www.baidu.com" class="bad">点击百度</a> -->
+</body>
+<Script>
+
+
+
+    // 1.
+    // if(false){
+    //     var a = 1;
+    //     let b= 2;
+    // }
+    // console.log(a);
+    // console.log(b);
+
+
+    // // 2.
+    // var a 
+    // a= 1
+    // if(true){
+    //     console.log(a);//暂时性死区
+    //     let a= 2
+    // }
+
+
+    // 3.
+    // var a = { n: 1 }
+    // var b = a
+    // a.x = a = { n: 2 }
+    // console.log(a.n, b.n);
+    // console.log(a.x, b.x);
+
+    // 4.
+    // var c
+    // function c(a){
+    //     var a
+    //     function a(){}
+    //   console.log(a);//先访问内部变量，再参数，最后全局
+    //      a = 3
+    // }
+    // console.log(c);
+    // c(2)
+
+    // 5.
+    // var c = 1;
+    // function c(c) {
+    //     console.log(c);
+    //     var c = 3;
+    // }
+    // console.log(c);  //1
+    // c(2);  //报错，not a function
+
+    // 6.
+    // var name = 'erdong';
+    // (function () {
+    //     if (typeof name === 'undefined') {
+    //         var name = 'chen';
+    //         console.log(name);
+    //     } else {
+    //         console.log(name);
+    //     }
+    // })();  //'chen'
+
+    // 7.
+    // var a = 10;
+    // function test() {
+    //     a = 100;
+    //     console.log(a);   //100
+    //     console.log(this.a);  //10
+    //     var a;
+    //     console.log(a);  //100
+    // }
+    // test();
+
+    // 8.
+    // if (!('a' in window)) {
+    //     var a = 1; //var 只有函数作用域，提升到全局，在window中
+    // }
+    // console.log(a);  //undefined
+
+    // 9.
+    // var a = 1
+    // function c(a, b) {
+    //     console.log(a);//内部没有声明，寻找参数，有声明没有定义
+    //     a = 2;
+    //     console.log(a);
+    // }
+    // c();//先访问内部变量，再参数，最后全局
+
+    // 10
+    // var val = 1;
+    // var obj = {
+    //     val: 2,
+    //     del: function () {
+    //         console.log(this);//obj
+    //         this.val *= 2;  //4 
+    //         console.log(val); //内部没有，参数没有，找全局
+    //     }
+    // }
+    // obj.del();
+
+    // 11
+    // var name = "erdong";
+    // var object = {
+    //     name: "chen",
+    //     getNameFunc: function () {
+    //         return function () {
+    //             return this.name;
+    //         }
+    //     }
+    // }
+    // const  aaa = object.getNameFunc()
+    // console.log(aaa());
+    // console.log(object.getNameFunc()());
+
+    // 12
+    // var name = "erdong";
+    // var object = {
+    //     name: "chen",
+    //     getNameFunc: function () {
+    //         var that = this;
+    //         return function () {
+    //             return that.name;
+    //         }
+    //     }
+    // }
+    // console.log(object.getNameFunc()());
+
+    // 13
+    // (function () {
+    //     var a = b = 3;   //伪代码b = 3;var a = b;
+    // })();
+    // console.log(typeof a === 'undefined');//undefined
+    // console.log(typeof b === 'undefined');//number
+    //自执行函数执行时,b由于未经var等操作符声明,为全局变量。a为函数作用域中的局部变量
+
+    // 14异步定时器
+    // 15闭包
+    // 16立即执行函数传参
+    // 17
+    // function f(){
+    //     return f;
+    // }
+    // console.log(new f());  //返回它本身，即返回构造函数f，默认返回对象
+    // console.log(typeof (new f()));//function
+    // console.log(f === new f()); //true
+    // console.log(new f() instanceof f);
+
+    // 18原型链和继承
+    // 19原型链和继承
+    // function A() {
+    // }
+    // A.prototype.n = 1;
+    // var b = new A();
+    // console.log(b);
+    // console.log(b.__proto__);
+    // console.log(A.prototype);
+
+    // A.prototype = {
+    //     n: 2,
+    //     m: 3
+    // }
+    // var c = new A();
+    // console.log(c);
+    // console.log(c.__proto__);
+    // console.log(A.prototype);
+    // console.log(b.n, b.m);
+    // console.log(c.n, c.m);
+
+    // var F = function () { };
+    // var O = {};
+    // Object.prototype.a = function () {
+    //     console.log('a')
+    // }
+    // Function.prototype.b = function () {
+    //     console.log('b')
+    // }
+    // var f = new F();
+
+// 21
+// console.log(1..toString);
+// 当执行1.toString();时,由于1.也是有效数字,因此此时变成(1.)toString()。没有用.调用toString方法,因此抛出错误。
+
+// 22
+// console.log(typeof NaN === 'number');
+
+// 23
+// console.log(1 + "2" + "2");
+// console.log(1 + +"2" + "2");
+// console.log(1 + -"1" + "2");
+// console.log(+"1" + "1" + "2"); 
+// console.log( "A" - "B" + "2"); 
+// console.log( "A" - "B" + 2); 
+//+a,会把a转换为数字。-a会把a转换成数字的负值(如果能转换为数字的话,否则为NaN)。
+// 字符串与任何值相加都是字符串拼接。
+
+// 24
+// var a = 666;
+// console.log(++a);  //667
+// console.log(a++);   //667
+// console.log(a);   //668
+
+// 25
+// console.log(typeof a);  //'function'
+// function a() {}
+// var a;
+// console.log(typeof a);  //'function'
+
+
+// 26
+// var a;
+// var b = 'undefined';
+// console.log(typeof a);   //'underfined'
+// console.log(typeof b);   //string
+// console.log(typeof c);  //注意typeof未声明和初始化都是'underfined'
+
+
+// 27
+// var x = 1;
+// if(function f(){}){   //true
+//     x += typeof f;  //x = x + type f ---x + 'undefined'
+// }
+// console.log(x);   //1undefined
+
+// console.log(Boolean(false)); //0  '' null undefined false  NaN
+
+// 28
+// var str = "123abc";
+// console.log(typeof str++);   //typeof Number(str)++  NaN
+// 使用++运算符时(无论是前置还是后置),如果变量不是数字类型,会首先用Number()转换为数
+
+
+
+// 29
+// console.log('b' + 'a' + +'a'+'a'); //baNaNa  
+
+
+// 30
+// var obj = {n: 1};
+// function fn2(a) {
+//     a.n = 2;
+//     // a={m:3}
+// }
+// fn2(obj);
+// console.log(obj);   //2
+// var a = 1;
+// function fn2(a) {
+//     a=2;
+// }
+// fn2(a);
+// console.log(a)  //1
+
+
+// 31
+// var x = 10;
+// function fn() {
+//     console.log(x);
+// }
+// function show(f) {
+//     var x = 20;
+//     f();
+// }
+// show(fn);   //10  
+// JavaScript采用的是词法作用域,它规定了函数内访问变量时,查找变量是从函数声明的位置向外层作用域中查找,而不是从调用函数的位置开始向上查找。因此fn函数内部访问的x是全局作用域中的x,而不是show函数作用域中的x。
+
+// 32
+// Object.prototype.bar = 1; 
+// var foo = {
+//     goo: undefined
+// };
+// console.log(foo.bar);  //1
+// console.log('bar' in foo);  //true
+// console.log(foo.hasOwnProperty('bar'));   //false
+// console.log(foo.hasOwnProperty('goo'));  //true
+// in会查找原型链,而hasOwnProperty不会。
+
+// 33
+// Object.prototype.bar = 1;
+// var foo = {
+//     moo: 2
+// };
+// for(var i in foo) {
+//     console.log(i);   //'moo','bar'
+// }
+// for...in...遍历对象上除了Symbol以外的可枚举属性,包括原型链上的属性
+
+// 34
+// function foo1() {
+//     return {
+//         bar: "hello"
+//     };
+// }
+// function foo2() {
+//     return 
+//     {
+//         bar: "hello"
+//     };
+// }
+// console.log(foo1());
+// console.log(foo2());
+
+// 35
+// console.log((function(){ return typeof arguments; })());
+
+
+// 36
+// console.log(Boolean(false));  //false
+// console.log(Boolean('0'));  //true
+// console.log(Boolean(''));  //false
+// console.log(Boolean(NaN));   //false
+
+
+// 37
+// console.log(Array(3));  //[empty * 3]
+// console.log(Array(2,3));//[2,3]
+
+// 38
+// console.log(0.1 + 0.2 == 0.3)  //false
+
+// 39
+// var a=[1, 2, 3];
+// console.log(a.join()); // 1,2,3
+
+// 40
+// var a = [3];
+// var b = [1];
+// console.log(a - b);  //2
+</Script>
+
+</html>
