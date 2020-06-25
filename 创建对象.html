@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+// 1.工厂模式(封装一个函数)
+function createObj(name){
+    var o  = new Object()
+    o.name = name;
+    o.sayName = function(){
+        console.log(name);   
+    }
+    return o 
+}
+let zhansang  = createObj('zhansang')
+console.log(zhansang);
+// 缺点：对象无法识别，所有实例指向一个原型
+
+// 2.原型链
+function Son(){}
+Son.prototype.name = 'gong'
+Son.prototype.getName = function(){
+    console.log(this.name);
+}
+let son1  =new Son()
+console.log(son1);
+// 问题：1.无法传参
+// 2.所有实例共享
+
+
+
+// 3.构造函数
+function Person(name){
+    this.name = name;
+    this.sayName = function(){
+        console.log(this.name);
+    }
+}
+let person1 = new Person('xiaoming')
+console.log(person1);
+
+// 优点：可以传参，实例不会共享
+// 缺点：每次创建一个方法
+
+
+
+
+// 4.组合模式
+function Father(name) {
+    this.name = name;
+}
+Father.prototype = {
+    constructor: Father,
+    getName: function () {
+        console.log(this.name);
+    }
+};
+let father1 = new Father('gege');
+console.log(father1);
+// 优点：原型链与构造函数结合，可以传参，实例不会共享，方法共用
+
+
+</script>
+</html>

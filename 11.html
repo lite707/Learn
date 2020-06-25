@@ -13,15 +13,95 @@
 
 </body>
 <script>
-    // function createElement(options={}){
-    //     const div = document.createElement('div')
-    //     let {width='600',height='300',backgroundColor='red'} = options;
-    //     div.style.width = width + 'px'
-    //     div.style.height = height + 'px'
-    //     div.style.backgroundColor = backgroundColor
-    //     document.body.appendChild(div)
+
+    // function foo() {
+    //     // console.log(this);
+    //     this.a = 1
+    //     console.log(this.a);
     // }
-    // createElement({width:600})
+    // function doFoo(fn) {
+    //     this.a = 4
+    // }
+    // var obj = {
+    //     a: 2,
+    //     foo: foo
+    // };
+    // var a = 3
+    // // obj.foo()   //这里调用的时候this为obj
+    // doFoo(obj.foo);   //这里调用foo的时候this为window
+
+
+    // document.querySelector('button').addEventListener('click', function (event) {
+    //     document.write(this.url + event.target.innerHTML)
+    // }.bind({ url: '12313' }))
+
+    // function fn(...arguments){
+    //     return arguments;
+    // }
+    // console.log(fn(1,23,13,6));
+
+
+    // let tag = 'win'
+    // let name2 = 'window';
+    // let doSth = function () {
+    //     console.log(this);
+    //     console.log(this.name2);
+    //     console.log(this.tag);
+    // }
+    // doSth();
+    // console.log(window.name2);
+
+
+    // const obj = {
+    //         i:0,
+    //         get: function () {
+    //             return ()=>{
+    //                 return this
+    //             }
+    //         }
+    //     }
+    //     let a = obj.get()
+    //     console.log(a());  //箭头函数this在定义时候决定，指向obj
+
+
+
+    // for (let i = 0; i < 3; i++) {
+    //     setTimeout(function () {
+    //         console.log(i);
+    //     }, 1000)
+    // }
+
+
+    // const obj = {
+    //     data: 123,
+    //     methods: {
+    //         da:23,
+    //         fn() {
+    //             // console.log('123132');
+    //             console.log(this);
+    //         }
+    //     },
+    //     create() {
+    //         console.log(this.methods);
+    //         this.methods.fn()
+    //         console.log(this);
+    //     }
+    // }
+    // obj.create()
+
+
+    // function add(p1) {
+    //     return function (p2) {
+    //         return p1 + p2;
+    //     }
+    // }
+    // var a = add(1);
+    // var b = add(2);
+    // a(1)
+    // b(1)
+
+
+ 
 
     // const obj = {
     //     name:'zhangsan',

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .ff {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+        background-color: red;
+    }
+</style>
+
+<body>
+    <div id='id'></div>
+    <a href="http://www.baidu.com">点击百度</a>
+    <input type="text" placeholder="傻子是你.....">
+    <button>点击显示文本内容</button>
+    <ul>
+        <li>我是1号</li>
+        <li>我是2号</li>
+        <li>我是3号</li>
+    </ul>
+</body>
+<script>
+
+    var div = document.querySelector('#id')
+    var a = document.querySelector('a')
+    var input = document.querySelector('input')
+    document.querySelector('button').addEventListener('click', function () {
+        let h1 = document.createElement('h1')
+        h1.innerHTML = input.value
+        document.body.appendChild(h1)
+    })
+    document.querySelector('ul').addEventListener('click', function (event) {
+        console.log(event.target);
+        console.log(event.currentTarget);
+
+    })
+    div.classList.add('ff')
+    console.log(div.className);
+
+    // DOMContentLoaded加载事件
+    document.addEventListener('DOMContentLoaded', () => {
+        const html = document.querySelector('html')
+        let fontSize = window.innerWidth / 10
+        fontSize = fontSize > 50 ? 50 : fontSize
+        html.style.fontSize = fontSize + 'px'
+    })
+
+    // alert(div.id)
+    // alert(div.className)
+    // alert(div.classList)
+    // alert(div.id)
+    // alert(div.id)
+
+    // // 创建元素
+    // let a = document.createElement('a')
+    // // 添加innerHTML内容
+    // a.innerHTML = '点击百度'
+    // // 添加Attribute属性
+    // a.setAttribute('href','http://www.baidu.com')
+    // // 添加class类
+    // a.className = 'bad'
+    // // 添加style样式
+    // a.style.fontSize = 24 + 'px'
+    // // 插入元素到文档
+    // document.body.appendChild(a)
+    // // 移除元素
+    // document.querySelector('button').addEventListener('click',function(){
+    //     document.body.removeChild(a)
+    // })
+    // console.log(a.classList);
+    // console.log(window.document);
+    // console.log(window.history);
+    // console.log(window.location);
+    // console.log(window.navigator);
+
+
+    //    let h1 =  document.createElement('h1')
+    //    console.log(h1);
+    //    h1.innerHTML =  'asuidgfi '
+    //     document.body.appendChild(h1)
+
+
+
+
+    // function createElement(options={}){
+    //     const div = document.createElement('div')
+    //     let {width='600',height='300',backgroundColor='red'} = options;
+    //     div.style.width = width + 'px'
+    //     div.style.height = height + 'px'
+    //     div.style.backgroundColor = backgroundColor
+    //     document.body.appendChild(div)
+    // }
+    // createElement({width:600})
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</html>
