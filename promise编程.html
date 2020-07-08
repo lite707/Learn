@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // new Promise((resolve, reject) => {
+    //     // resolve('成功')
+    //     reject('失败')
+    // }).then(v => {
+    //     console.log('默认返回promise且为成功状态');
+    // }).then(v => {
+    //     console.log(v);
+    //     return '55'
+    // }, reason => {
+    //     console.log(reason);
+    //     return new Promise((resolve, reject) => {
+    //         reject('失败后失败')
+    //     })
+    // }).then(v => {
+    //     console.log(v);
+    // }, reason => {
+    //     console.log(reason);
+    // }).catch(reason => {
+    //     console.log('值穿透，一路执行下来而不是有失败就直接到这里');
+    // })
+
+
+
+    // 可以将ajax的回调函数封装为promise
+    // function ajax(url, cb) {
+    //     let xhr = new XMLHttpRequest()
+    //     xhr.open('GET', url)
+    //     xhr.send()
+    //     xhr.onload = function () {
+    //         if (xhr.readyState == 4) {
+    //             if (xhr.status === 200) {
+    //                 cb(xhr.responseText)
+    //             }
+    //         } else {
+    //             console.log('shibai');
+    //         }
+    //     }
+
+    // }
+
+
+    // function ajax(url) {
+    //     return new Promise((resolve, reject) => {
+    //         let xhr = new XMLHttpRequest()
+    //         xhr.open('GET', url)
+    //         xhr.send()
+    //         xhr.onload = function () {
+    //             if (xhr.readyState == 4) {
+    //                 if (xhr.status === 200) {
+    //                     resolve(xhr.responseText)
+    //                 }
+    //             } else {
+    //                 reject('shibai')
+    //             }
+    //         }
+    //     })
+    // }
+
+
+    // function loadImg(url, resolve, reject) {
+    //     const img = new Image()
+    //     img.src = url
+    //     img.onload = ()=>{
+    //         resolve(img)         
+    //     }                        
+
+    //     img.onerror = reject
+    // }
+    // loadImg('./git.PNG', (img) => {
+    //     document.body.appendChild(img)
+    //     console.log('图片加载完成');
+    // }, () => {
+    //     console.log('图片加载失败');
+    // })
+
+    // 使用promise封装加载图片的函数
+    // function loadImg(url) {
+    //     return new Promise((resolve, reject) => {
+    //         const img = new Image()
+    //         img.src = url
+    //         img.onload = () => {
+    //             document.body.appendChild(img)
+    //             resolve(img)
+    //         }
+    //         img.onerror = () => {
+    //             reject('加载失败')
+    //         }
+    //     })
+    // }
+    // loadImg('./git.PNG').then(img => {
+    //     setTimeout(() => {
+    //         img.style.width = "300px"
+    //         img.style.border = "solid 6px red"
+    //     }, 3000)
+    //     console.log(img);
+    // }, reason => {
+    //     console.log(reason);
+    // })
+
+
+    // promise等待执行
+    new Promise((resolve,reject)=>{
+        resolve('1')
+    }).then(value=>{
+        console.log(value);
+        return new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                resolve('1123')
+            },3000)
+        })   
+    }).then(v=>{
+       console.log(v);
+       
+        
+    })
+</script>
+
+</html>

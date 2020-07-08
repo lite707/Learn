@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+   
+    // function Father(name){
+    //     this.name  = name
+    // }
+    // Father.prototype.sayName = function(){
+    //     console.log(this.name);   
+    // }
+    // const son  =  new Father('zhangs')
+    // son.sayName()
+    // console.log(son);
+    // console.log(son.__proto__ === Father.prototype);
+
+
+    // class User{}
+    // console.dir(User);
+
+    // class User{
+    //     constructor(name){        //属性设置
+    //         this.name = name
+    //     }
+    //     sayName(){                   //prototype上方法
+    //         console.log(this.name);
+    //     }
+    //     static getname(){            //User上静态方法
+    //         console.log(this.name + '12313');
+    //     }
+    // }
+    // const zhan = new User('zhan')
+    // User.getname()    //静态属性方法
+    // console.dir(User);
+    // console.log(zhan);
+
+
+
+    // 访问器使用
+    class Request{
+        constructor(host){
+            this.data = {}
+            this.host = host   //这里相当于user.host  即调用了 set host()方法
+        }
+        set host(url){
+            if(url !== 'http://www.baidu.com'){
+                throw new Error('地址错误')
+            }
+            this.data.host = url
+        } 
+        get host(){
+            return this.data['host']
+        }
+    }
+    let user = new Request('http://www.baidu.com') 
+    // user.host = '1231'    //这里调用了set host（）方法，抛出错误
+    const host = user.host   //这里调用了get host () 方法 ，返回了user.data.host
+    console.log(host);
+    
+    
+    console.log(user);
+    
+
+</script>
+</html>

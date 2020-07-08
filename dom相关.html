@@ -42,16 +42,28 @@
         console.log(event.currentTarget);
 
     })
+
+
+
     div.classList.add('ff')
     console.log(div.className);
 
+
+    // 自定义事件
+    var eve  =  new Event('bb')              //自定义事件
+    div.addEventListener('bb',function(e){
+        console.log('发生了Bb事件');
+        console.log(e.target);
+    })                                       //绑定事件
+    div.dispatchEvent(eve)                   //触发事件
+
     // DOMContentLoaded加载事件
-    document.addEventListener('DOMContentLoaded', () => {
-        const html = document.querySelector('html')
-        let fontSize = window.innerWidth / 10
-        fontSize = fontSize > 50 ? 50 : fontSize
-        html.style.fontSize = fontSize + 'px'
-    })
+    // document.addEventListener('DOMContentLoaded', () => {
+    //     const html = document.querySelector('html')
+    //     let fontSize = window.innerWidth / 10
+    //     fontSize = fontSize > 50 ? 50 : fontSize
+    //     html.style.fontSize = fontSize + 'px'
+    // })
 
     // alert(div.id)
     // alert(div.className)

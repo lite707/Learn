@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>1</li>
+        <li>1</li>
+        <li>1</li>
+        <li>1</li>
+    </ul>
+
+</body>
+<script>
+
+    const arr = [1, 2, 1, 4, 5, 6, 23, 1]
+    //  ES6数组去重
+    function dum(a) {
+        const aa = Array.from(new Set([...a]))   //set里面的参数必须是数组,若是伪数组则解构转换
+        return aa
+    }
+    const newaa = dum(arr)
+    console.log(newaa);
+
+    
+    // for循环数组去重
+    let ret = []
+    for (let i of arr) {
+        if (!ret.includes(i)) {
+            ret.push(i)
+        }
+    }
+    console.log(ret);
+
+    // Array.from将伪数组转换为数组
+    const li = document.querySelectorAll('li')
+    console.log(li);
+    
+
+    const lis = Array.from(li)
+    console.log(lis);
+
+
+    // [].slice.apply将伪数组转换为数组
+    const lis2 = [].slice.apply(li)   //原数组不发生改变，返回操作后的新数组
+    console.log(lis2);
+
+    // 解构将伪数组转换为数组
+    const lis3=  [...li]
+    console.log(lis3);
+    
+
+</script>
+
+</html>
