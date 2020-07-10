@@ -29,7 +29,7 @@
     const newaa = dum(arr)
     console.log(newaa);
 
-    
+
     // for循环数组去重
     let ret = []
     for (let i of arr) {
@@ -42,21 +42,47 @@
     // Array.from将伪数组转换为数组
     const li = document.querySelectorAll('li')
     console.log(li);
-    
 
     const lis = Array.from(li)
     console.log(lis);
-
 
     // [].slice.apply将伪数组转换为数组
     const lis2 = [].slice.apply(li)   //原数组不发生改变，返回操作后的新数组
     console.log(lis2);
 
     // 解构将伪数组转换为数组
-    const lis3=  [...li]
+    const lis3 = [...li]
     console.log(lis3);
-    
 
+
+    // 数组最大最小值
+    const arr1 = [1, 2, 3, 45, 6, 61, 7]
+    const max = Math.max.apply(Math, arr1)
+    const min = Math.min.apply(Math, arr1)
+    console.log(max);
+    console.log(min);
+
+    //    数组排序
+    arr1.sort((a, b) => {
+        return a - b
+    })
+    console.log( arr1);
+
+    // 扁平化操作
+    const fl = [12, 233, 12, [1, 2, 3, [7,8]]]
+    function flatten(arr) {
+        return arr.reduce((result, item) => {
+            return result.concat(Array.isArray(item) ? flatten(item) : item)
+        }, [])
+    }
+    const flatf1 = flatten(fl)
+    console.log(fl);
+    console.log(flatf1);
+
+
+    const arr3 = [111,222].concat([44,556,66])
+    console.log(arr3);
+    
 </script>
 
 </html>

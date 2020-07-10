@@ -146,29 +146,65 @@
             border: 2px solid black;
             margin: 10px;
         }
-        .clearFix:after{
+
+        .clearFix:after {
             content: '';
             height: 0;
             display: block;
             clear: both;
         }
 
-        .parent{
+        .parent {
             /* overflow: hidden; */
-            
+
         }
-        .left{
+
+        .left {
             width: 300px;
             /* height: 100vh; */
             float: left;
             margin-right: 20px;
             background-color: red;
         }
-        .right{
+
+        .right {
             overflow: hidden;
             /* height: 100vh; */
             background-color: blue;
 
+        }
+
+        .test li {
+            width: 50px;
+            list-style-type: none;
+            margin-top: 15px;
+            border-radius: 20%;
+            text-align: center;
+            border: solid 2px #ccc;
+            margin-left: 25px;
+            font-size: 26px;
+            font-weight: 700;
+        }
+
+        .test li:nth-child(4) {
+            color: red;
+        }
+
+        .test li:nth-last-child(2) {
+            color: blue
+        }
+
+        .test li:last-child {
+            text-shadow: 2px 2px 5px tomato;
+        }
+
+        .test li:nth-child(2) {
+            color: pink;
+        }
+
+        .test li:nth-of-type(2) {
+            color: yellowgreen;
+          
         }
     </style>
 </head>
@@ -232,18 +268,38 @@
         </div>
     </div> -->
 
-    <div class="parent">
+    <!-- <div class="parent">
         <div class="left">
             我是左边
         </div>
         <div class="right">
             我是右边
         </div>
-    </div>
+    </div> -->
 
+    <ul class="test">
+        <li class="first">1</li>
+        <p>不要问我是谁</p>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+
+
+    </ul>
 
 
 
 </body>
+<script>
+
+//    document.querySelector('ul').addEventListener('doubleClick',function(e){
+//     e.target.style.transform ='translate(50%)'
+//    })
+   document.querySelector('ul').addEventListener('click',function(e){
+    e.target.style.transform ='translate(50%)'
+   })
+</script>
 
 </html>

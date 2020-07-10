@@ -59,11 +59,15 @@
     }).then(() => {
         console.log('需满足宏任务条件后的微任务');
     })
+
+    // process.nextTick(function(){
+    //     console.log('微任务');
+    // })   总是执行在所有异步任务之前
+
     let pp = new Promise(resolve =>{
         resolve()
     }).then(()=>{
         console.log('微任务');
-        
     })
 
     console.log('主线程');

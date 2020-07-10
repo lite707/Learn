@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button class="btn1">点击防抖函数</button>
+    <button class="btn2">点击节流函数</button>
+
+</body>
+
+
+
+<script>
+
+    // 防抖函数
+    // 多次触发只发生一次（最后一次），在触发间隔前多次点击会清除然后重新间隔记时
+
+    // document.querySelector('button').addEventListener('click', function () {
+    //     console.log(this);
+    // })   
+    //以上的this指向绑定事件对象，下面同理
+    document.querySelector('.btn1').addEventListener('click', debounce(fn, 2000))
+    document.querySelector('.btn2').addEventListener('click', throttle(fn1, 2000))
+
+
+    function debounce(fn, second) {
+        let timer = null
+        return function () {
+            // console.log(this);   //同下的this
+            clearTimeout(timer)
+            timer = setTimeout(() => {
+                console.log(this);
+                fn.call(this, arguments);     //这里箭头函数的this为匿名函数的this，而dom事件函数的this指向绑定对象
+            }, second)
+        }
+    }
+
+    function fn() {
+        console.log('我是防抖函数,我在规定时间内无论点击多少次都只触发最后一次');
+    }
+
+
+
+    // 节流函数
+    // 就是在规定时间内只是触发一次（第一次），当触发后，只有等待完成后改变阀门才可以再次触发
+    function throttle(fn, second) {
+        let flag = true
+        return function () {
+            if (!flag) {
+                return
+            }
+            flag = false
+            setTimeout(() => {
+                console.log(this);
+                
+                fn.call(this.arguments)
+                flag = true
+            }, second)
+
+        }
+    }
+
+    function fn1() {
+        console.log('我是节流函数，我在第一次点击后在完成前无论点击多少次都只执行第一次');
+    }
+
+</script>
+
+</html>

@@ -217,14 +217,14 @@
 
 
 
-    // function copy(obj) {
-    //     const fn = obj instanceof Array ? [] : {}
-    //     for (const [k, v] of Object.entries(obj)) {
-    //         fn[k] = typeof v === 'object' ? copy(v) : v
-    //     }
-    //     return fn
-    // }
-    // const fn = copy(par)
+        // function copy(obj) {
+        //     const fn = obj instanceof Array ? [] : {}
+        //     for (const [k, v] of Object.entries(obj)) {
+        //         fn[k] = typeof v === 'object' ? copy(v) : v
+        //     }
+        //     return fn
+        // }
+        // const fn = copy(par)
 
     // fn.name = '132131'
     // fn.data.sex = 'nv'
@@ -292,6 +292,30 @@
     // person1.show4()()   //person1
     // person1.show4().call(person2)  //person1
     // person1.show4.call(person2)()  //person2
+
+
+    let obj   = {
+        name:'112321',
+        age:18
+    }
+    Object.prototype.sex = '男'
+    for (const key in obj) {
+        console.log(key);        //包括sex，包括原型链上的属性
+        if (obj.hasOwnProperty(key)) {    //没有sex，只有自身的值
+            console.log(obj[key]);
+        }
+    }
+
+        const arr =[,12,3,212,null,undefined,'',true,false]
+        console.log(arr);
+        for(const i  in arr){
+            arr[i]++
+        }
+        console.log(arr);
+        const flag =   arr.hasOwnProperty('length')   
+        console.log(flag);   //true  数组中length为不可枚举属性，hasOwnProperty可以检测出自身不可枚举的属性
+        
+        
 
 
 </script>
