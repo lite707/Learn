@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        canvas{
+            border:1px solid #ccc
+        }
+    </style>
+</head>
+<body>
+   
+  <canvas width="300" height="600">
+
+  </canvas>
+    
+</body>
+<script>
+
+    /*
+    使用canvas步骤
+    1.使用canvas标签，设置宽高与边框
+        注意点：宽高在标签中设置，边框显示画布在样式中设置
+    2.获取canvas对象与其上下文
+        
+    3.使用上下文进行绘画
+        3.1开始路径
+        3.2绘制
+        3.3样式或者画笔状态
+        3.4描边或者填充，结束
+      
+    */
+
+    const canvas = document.querySelector('canvas')
+    const ctx = canvas.getContext('2d')
+
+    // 开启新路径
+    ctx.beginPath()
+
+    //    位置1
+    ctx.moveTo(100,100)
+    //    轨迹1
+    ctx.lineTo(200,100)
+    ctx.lineTo(200,200)
+    // 自动闭合  首尾自动连接闭合，一般闭合图形中使用
+    ctx.closePath()
+
+ 
+    // 位置2
+    ctx.moveTo(0,50)
+    // 轨迹2
+    ctx.lineTo(250,300)
+    ctx.lineTo(250,50)
+    // 自动闭合
+    ctx.closePath()
+
+
+
+    // 描边，  完成图形绘制
+    // ctx.strokeStyle = 'blue'
+    // ctx.lineWidth = 20
+    // ctx.stroke()
+
+    // 填充 与描边二选一，完成图形绘制，填充颜色
+    // 填充存在一个非0环绕规则，某一块闭合区域往外，若遇到顺时针边界则+1，为逆时针边界-1，最终和不为0则填充
+    ctx.fillStyle = 'red'
+    ctx.fill()
+
+    
+    
+    
+</script>
+</html>

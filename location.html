@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button></button>
+</body>
+
+<script>
+
+    const btn = document.querySelector('button')
+    btn.innerHTML = '点击跳转'
+    btn.addEventListener('click', function () {
+        console.log(window.location);
+    //     console.log(location.pathname);
+    //     console.log(location.host);
+    //     console.log(location.href);  
+    //     console.log(location.search);
+    //     console.log(location.port);
+    })
+    const locationq = location.href.substring(1)    // //攫取字符串不改变原字符串
+    console.log(location.href);
+    console.log(locationq);
+    
+    const locationq1 = location.href.substr(2)    // //攫取字符串不改变原字符串
+    console.log(location.href);
+    console.log(locationq1);
+
+    const arr=  location.href.split('/')      //字符串变数组
+    console.log(arr);
+
+    const arr2 = arr.slice(0,2)       //从哪里攫取到哪里,不包括结束位置
+    console.log(arr   )               //不改变原数组
+    console.log(arr2 );        
+    
+
+    const arr3  = arr.splice(0, 2,'nihoa')   //从哪里开始攫取几位,包括起始位 ，这里即序列0  ， 1 
+    console.log(arr);              //改变原数组
+     console.log(arr3);             //攫取到的数据
+
+    
+
+
+    const arr1 =  arr.reverse()               
+    // console.log(arr1);
+
+
+    const str = arr1.join('-')               //数组变字符串
+    console.log(str);
+    
+    
+    
+    
+    
+    const query =location.search.length? location.search.substring(1) : ''     
+    console.log('我:'+ query);
+    
+</script>
+
+</html>

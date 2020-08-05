@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding:0;
+    }
+    #draw{
+        background-color: red;
+    }
+    img{
+        transition:all 0.2s;
+    }
+    img:hover{
+        transform: translate(0,200%) scale(2) rotate(60deg);
+    }
+</style>
+<body>
+
+    <canvas width="200" height="200" id="draw">   
+
+    </canvas>
+    
+</body>
+<script>
+
+    /*
+    *
+    1.在canvas标签中设置width和height
+    2.必须设置样式才能看到
+    3.获取之前使用getContext方法判断绘图是否存在
+    4.使用getContext获取该绘图的2d或者3d上下文对象
+    */
+
+    const draw = document.querySelector('#draw')    //获取canvas绘图
+    // if(draw.getContext){
+    //     const drawing = drwa.getContext('2d')     //获取该绘图的2d上下对象
+    // }  
+
+
+    if(draw.getContext){
+        console.log('123');
+        
+        const imageURL = draw.toDataURL('image/png')      //导出绘图图像的方法，接收参数类型格式
+        const image = document.createElement('img')        //创建img标签
+        image.src = imageURL                                  //给新建标签添加链接
+        document.body.appendChild(image)                            //添加到body中
+    }
+
+
+   const qq=  document.querySelector('img')
+   qq.style.backgroundColor = 'blue'
+
+
+ 
+
+    
+
+</script>
+</html>
