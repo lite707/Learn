@@ -9,7 +9,7 @@
 </head>
 
 <body>
-回调函数-----异步编程----promise------js执行机制
+    回调函数-----异步编程----promise------js执行机制
 </body>
 <script>
     // function loadImg(url, resolve, reject) {
@@ -64,14 +64,14 @@
     //     console.log('微任务');
     // })   总是执行在所有异步任务之前
 
-    let pp = new Promise(resolve =>{
+    let pp = new Promise(resolve => {
         resolve()
-    }).then(()=>{
+    }).then(() => {
         console.log('微任务');
     })
 
     console.log('主线程');
-    //主线程同步回调函数     
+    //主线程同步回调函数
     //主线程
     //微任务
     //宏任务中任务
