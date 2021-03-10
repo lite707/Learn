@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+</head>
+
+<body>
+  <input id="dd" type="file">
+  <img id="im1" width="250" height="250">
+  <img id="im2" width="250" height="250">
+
+</body>
+<script>
+  // document.querySelector('#dd').addEventListener('change', function () {
+  //   console.log(this);
+
+  //   const file = this.files[0];
+  //   console.log(file);
+  //   const imgURL = window.URL.createObjectURL(file)
+  //   console.log(imgURL);
+  //   document.querySelector('#im1').setAttribute('src', imgURL)
+
+
+
+  //   const xhr = new XMLHttpRequest()
+  //   const url = 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2771978851,2906984932&fm=26&gp=0.jpg'
+  //   xhr.open('GET', url, true)
+  //   xhr.responseType = 'blob'  //设置返回类型
+  //   xhr.send()
+  //   xhr.onload = function () {
+  //     const resdata = xhr.response
+  //     console.log(xhr.response)
+
+  //     // 如果返回不是blob类型，可以使用以下转化
+  //     // // const blob = new Blob([resdata], { type: 'image/jpeg' })
+  //     // // console.log(blob)
+  //     // // const imgu = window.URL.createObjectURL(blob)
+
+
+
+  //     const imgu = window.URL.createObjectURL(resdata)
+  //     console.log(imgu)
+  //     document.querySelector('#im2').setAttribute('src', imgu)
+
+
+  //     const ar = document.createElement('a')
+  //     ar.setAttribute('href', imgu)
+  //     ar.setAttribute('download', '')
+  //     ar.click()
+  //     // document.body.appendChild(ar)
+
+
+  //   }
+
+  // }
+  // )
+
+  aa.forEach(item => {
+
+    const xhr = new XMLHttpRequest()
+    const url = item
+    xhr.open('GET', url, true)
+    xhr.responseType = 'blob'  //设置返回类型
+    xhr.send()
+    xhr.onload = function () {
+      const resdata = xhr.response
+      console.log(xhr.response)
+      let imgu = window.URL.createObjectURL(resdata)
+      console.log(imgu)
+      let bb = window.document.createElement('a')
+      bb.setAttribute('href', resdata)
+      bb.setAttribute('download', '')
+      bb.click()
+      // document.body.appendChild('bb')
+
+
+    }
+
+  })
+
+
+</script>
+
+</html>
